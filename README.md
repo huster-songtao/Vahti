@@ -9,19 +9,27 @@ https://answers.netlify.com/t/status-badge-incorrectly-shows-failing-when-deploy
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b93f50a0-c805-4447-ade1-4c704da1945e/deploy-status)](https://app.netlify.com/sites/vahti/deploys)-->
 
 Vahti is a lightweight .NET and MQTT based home monitoring system to read measurement data from different kind of sources. 
+Vahti是一个基于.NET和MQTT的轻量级家庭监控系统，用于从不同类型来源读取测量数据。
 
 Server part (running on Raspberry Pi, for example) gathers data for mobile and web application to show. Alerts (push/email) are also supported. System can also be used without mobile app just to get alerts by email from server, or to publish data for any generic MQTT client application.
+服务器部分（例如，在Raspberry Pi上运行）采集要显示在移动和Web应用程序上的数据。支持告警通知（PUSH推送/电子邮件）。系统也可以在没有移动应用程序的情况下使用，可以只是为了通过电子邮件从服务器获取告警通知，或为任何通用 MQTT 客户端应用程序发布数据。
 
-## General concepts
+## General concepts 一般概念
 - Lightweight. Server runs well on Raspberry Pi (2/3/4 with ARMv7/8)
+- 轻量级服务器在Raspberry Pi上运行良好（2/3/4，ARMv7/8处理器，ARMv7处理器的性能和能效要低于ARMv8处理器）
 - No need to expose home network to Internet (data is stored in cloud database)
+- 无需将家庭网络暴露给互联网（数据存储在云数据库中）
 - No paid services needed
+- 无需付费服务
 - Can be used without mobile app just as an alert system
+- 不使用移动应用程序也可以用于警报系统
 - Different services can also be run on different machines
+- 不同的服务也可以在不同的机器上运行
 - A 3rd party mobile app (MQTT client) can also be used to display the data
+- 第三方移动应用程序（MQTT 客户端）也可用于显示数据
 
-## Features
-### Mobile application (Vahti.Mobile)
+## Features 特征
+### Mobile application (Vahti.Mobile) 移动应用程序（Vahti.Mobile）
 ![Locations (Dark)](doc/images/locations_dark.png) 
 ![Locations](doc/images/locations_light.png) 
 ![History](doc/images/history_light.png)
@@ -30,23 +38,37 @@ Server part (running on Raspberry Pi, for example) gathers data for mobile and w
 ![Widget](doc/images/widget.png)
 
 - For Android and iOS
+- 适用于安卓和苹果
 - Implemented with .NET MAUI
+- 使用 .NET MAUI 实现
 - Show latest measurement data and history graphs
+- 显示最新的测量数据和历史图表
 - Choose which measurements to show in main view
-- Get push notifications (alerts) from server 
+- 在主视图中显示测量值
+- Get push notifications (alerts) from server
+- 从服务器获取推送通知（告警信息）
 - Localizable (currently supports Finnish and English)
+- 可本地化（目前支持芬兰语和英语）
 - Android widget to show selected information on home screen
+- 安卓小部件在主屏幕上显示所选信息
 - Dark and light theme
-### Web application (Vahti.Web)
+- 深色和浅色主题
+### Web application (Vahti.Web) Web 应用程序 （Vahti.Web）
 ![Web application](doc/images/react_app.png)
 - Implemented with ReactJS
+- 使用 ReactJS 实现
 - Show latest measurement data and history graphs
+- 显示最新的测量数据和历史图表
 - Choose which measurements to show in main view
+- 在主视图中显示测量值
 - Can be easily deployed to app hosting services
+- 可以轻松部署到云服务器
 - Use [vahti.netlify.app](https://vahti.netlify.app) either with demo data or your own data
+- 将 vahti.netlify.app 与演示数据或您自己的数据一起使用
 
-### Server (Vahti.Server)
+### Server (Vahti.Server) 服务器（Vahti.Server）
 Server can be configured to run all or any of the services below. All services can run on same machine, or they can be distributed to different machines.
+服务器可以配置为运行以下所有或任何服务。所有服务都可以在同一台计算机上运行，也可以分发到不同的计算机上。
 #### DataBroker (Vahti.DataBroker)
 - Uses MQTT to gather measurement data from any MQTT client
 - Sends measurements and history data periodically to cloud database (currently Google Firebase)
